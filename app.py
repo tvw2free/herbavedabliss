@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
+import os
 
 app = Flask(__name__)
 
@@ -21,7 +22,7 @@ def buy(pid):
         return "Invalid product!", 404
     product = products[pid]
     if request.method == "POST":
-        # (You can save customer info here if you wish)
+        # (Optional: Save customer info here if you want)
         return redirect(RAZORPAY_LINK)
     return render_template("buy.html", product=product)
 
@@ -33,10 +34,7 @@ def about():
 def contact():
     return render_template("contact.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)
-import os
-
+# ⭐️ IMPORTANT: This is required for Render.com!
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
