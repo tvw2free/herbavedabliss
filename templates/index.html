@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HerbaVeda Bliss</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img id="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="HerbaVeda Bliss Logo">
+        <div>
+            <h1>HerbaVeda Bliss</h1>
+            <div>Natural Relief for Stress, Pain, Digestion &amp; Sleep — the Ayurvedic Way</div>
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About Us</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="product-list">
+            {% for p in products %}
+            <div class="product">
+                <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}">
+                <div class="name">{{ p.name }}</div>
+                <div class="price">₹2999 <span style="font-size:0.89em; color:#27a230;">(Delivery Included)</span></div>
+                <div class="desc">{{ p.description }}</div>
+                <a href="{{ url_for('buy', pid=loop.index0) }}">
+                    <button class="buy-btn">Buy Now</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <div>HerbaVeda Bliss &copy; 2025. All rights reserved.</div>
+        <div class="footer-contact">
+            📱 <a href="https://wa.me/919999999999" style="color:#e7c882;text-decoration:underline;">WhatsApp Us</a> |
+            ✉️ <a href="mailto:info@herbavedabliss.com" style="color:#e7c882;text-decoration:underline;">info@herbavedabliss.com</a>
+        </div>
+        <div class="footer-links" style="margin-top:6px;">
+            <a href="{{ url_for('about') }}">About</a> |
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </div>
+        <div style="color:#b2b08b; font-size:0.92em; margin-top:10px;">
+            All herbal products are based on traditional formulations. Not for use without consultation with a healthcare provider if yo

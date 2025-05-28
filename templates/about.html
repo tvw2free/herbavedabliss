@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - HerbaVeda Bliss</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img id="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <div>
+            <h1>HerbaVeda Bliss</h1>
+            <div>Natural Relief for Stress, Pain, Digestion &amp; Sleep — the Ayurvedic Way</div>
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About Us</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>About HerbaVeda Bliss</h2>
+        <p>HerbaVeda Bliss is a premium Ayurvedic and herbal wellness store dedicated to natural healing. Our handpicked products are crafted to help you reduce stress, relieve body pain, enhance vitality, support restful sleep, and promote healthy digestion—all with the power of ancient Ayurveda and pure Indian herbs.</p>
+        <p>We believe in transparency, authenticity, and bringing you the best that nature offers. Your wellbeing is our mission!</p>
+        <p>Feel free to <a href="{{ url_for('contact') }}">contact us</a> anytime for personal wellness recommendations.</p>
+    </main>
+    <footer>
+        <div>HerbaVeda Bliss &copy; 2025. All rights reserved.</div>
+    </footer>
+</body>
+</html>
